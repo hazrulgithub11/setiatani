@@ -1,4 +1,15 @@
 import { ChevronRight } from "lucide-react";
+import { motion } from "framer-motion";
+
+const newsGrid = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.07 } },
+};
+
+const newsItem = {
+  hidden: { opacity: 0, y: 16 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] } },
+};
 
 // News items for Setia Tani.
 // In a real implementation these would be fetched from an API or CMS.
@@ -69,23 +80,41 @@ export function NewsSection() {
   return (
     <section className="bg-white py-14" aria-labelledby="news-heading">
       <div className="mx-auto max-w-4xl px-6">
-        {/* Centered heading — no accent bar here; the screenshot uses plain centered text */}
-        <h2
+        {/* Heading fades up */}
+        <motion.h2
           id="news-heading"
           className="text-center text-2xl font-bold text-[#003087] sm:text-[1.6rem]"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: true, margin: "-60px" }}
         >
           Latest News
-        </h2>
+        </motion.h2>
 
-        {/* 2 × 3 grid of news cards — collapses to 1 column on mobile */}
-        <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
+        {/* 2 × 3 grid — each card staggers in with a short delay */}
+        <motion.div
+          className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2"
+          variants={newsGrid}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-40px" }}
+        >
           {NEWS_ITEMS.map((item) => (
-            <NewsCard key={item.title} {...item} />
+            <motion.div key={item.title} variants={newsItem}>
+              <NewsCard {...item} />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        {/* "More News" CTA — navy filled pill, centred below the grid */}
-        <div className="mt-10 flex justify-center">
+        {/* "More News" CTA — fades in after the grid */}
+        <motion.div
+          className="mt-10 flex justify-center"
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
+          viewport={{ once: true, margin: "-40px" }}
+        >
           <a
             href="#"
             className="inline-flex items-center gap-2 rounded-full bg-[#003087] px-7 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#00418f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#003087]"
@@ -94,7 +123,7 @@ export function NewsSection() {
             More News
             <ChevronRight className="h-4 w-4" aria-hidden="true" />
           </a>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
