@@ -5,11 +5,13 @@ import { BusinessesSection } from "../components/businesses-section";
 import { DriversSection } from "../components/drivers-section";
 import { SustainabilityBanner } from "../components/sustainability-banner";
 import { NewsSection } from "../components/news-section";
+import { CareersBanner } from "../components/careers-banner";
+import { SiteFooter } from "../components/site-footer";
 
 export function HomePage() {
   return (
     // Full-page white container — no max-width here so the Hero and Navbar
-    // can span the entire viewport width as in the Scientex design.
+      // can span the entire viewport width as in the design.
     <div className="min-h-screen bg-white">
       <Navbar />
 
@@ -19,7 +21,7 @@ export function HomePage() {
       <div className="border-b border-gray-200 bg-white px-6 py-1.5">
         <div className="mx-auto max-w-7xl">
           <nav aria-label="Breadcrumb">
-            <span className="text-xs text-gray-500">Scientex</span>
+            <span className="text-xs text-gray-500">Setia Tani</span>
           </nav>
         </div>
       </div>
@@ -30,6 +32,8 @@ export function HomePage() {
       <DriversSection />
       <SustainabilityBanner />
       <NewsSection />
+      <CareersBanner />
+      <SiteFooter />
     </div>
   );
 }

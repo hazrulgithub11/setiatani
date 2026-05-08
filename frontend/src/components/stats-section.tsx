@@ -1,29 +1,26 @@
-import { CircleDollarSign, Users, Cog, Home } from "lucide-react";
+import { CircleDollarSign, Users, Tractor, Leaf } from "lucide-react";
 import { StatCard } from "./stat-card";
 
-// Each entry maps directly to one of the four metric blocks in the screenshot.
-// Icon choices are the closest Lucide equivalents to the circular-badge icons
-// shown in the Scientex design (exact SVG icons would need a licensed asset).
 const STATS = [
   {
     icon: CircleDollarSign,
-    value: "RM4.5 Billion",
-    label: "Revenue",
+    value: "RM 1.2 Billion",
+    label: "Annual Revenue",
   },
   {
     icon: Users,
-    value: "3,710",
+    value: "5,200+",
     label: "Employees",
   },
   {
-    icon: Cog,
-    value: "450,000 Metric Tons",
-    label: "Manufacturing Capacity",
+    icon: Tractor,
+    value: "85,000 Hectares",
+    label: "Oil Palm Planted Area",
   },
   {
-    icon: Home,
-    value: "45,356",
-    label: "Completed Affordable Homes",
+    icon: Leaf,
+    value: "280,000 Metric Tons",
+    label: "CPO Production Per Year",
   },
 ] as const;
 
@@ -39,20 +36,20 @@ export function StatsSection() {
           id="stats-heading"
           className="text-2xl font-bold text-[#003087] sm:text-[1.6rem]"
         >
-          Scientex At A Glance
+          Setia Tani At A Glance
         </h2>
 
-        {/* Short gold accent bar — visually anchors the heading like in the screenshot */}
+        {/* Short gold accent bar — visually anchors the heading */}
         <div
           className="mt-2 h-[3px] w-10 bg-[#F5A623]"
           aria-hidden="true"
         />
 
-        {/* Body copy from the Scientex website */}
         <p className="mt-6 max-w-2xl text-sm leading-relaxed text-gray-600">
-          Scientex is one of the top producers of stretch film and a leading
-          player in the flexible plastic packaging industry, as well as a
-          reputable developer of affordable yet quality homes in Malaysia.
+          Setia Tani is one of Malaysia's leading integrated palm oil producers,
+          managing extensive oil palm estates and modern processing mills to
+          deliver high-quality Crude Palm Oil (CPO) and Palm Kernel products
+          to domestic and international markets.
         </p>
 
         {/* ── 2 × 2 metric grid ──

@@ -25,7 +25,7 @@ export function StatCard({ icon: Icon, value, label }: StatCardProps) {
 
       {/* Text block */}
       <div>
-        {/* Metric value in Scientex gold */}
+        {/* Metric value in brand gold */}
         <p className="text-xl font-bold leading-tight text-[#F5A623]">{value}</p>
         {/* Label in a dark navy so it reads clearly on the light gray background */}
         <p className="mt-0.5 text-sm font-medium text-[#003087]">{label}</p>

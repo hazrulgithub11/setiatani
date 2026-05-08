@@ -4,24 +4,24 @@ import { ChevronRight } from "lucide-react";
 // Images are Unsplash stand-ins; swap src props with real licensed assets.
 const BUSINESSES = [
   {
-    title: "Packaging",
+    title: "Plantation",
     description:
-      "An integrated packaging producer serving industrial and consumer markets, with exports to more than 60 countries worldwide.",
+      "A fully integrated oil palm estate operator managing extensive plantations across Malaysia, ensuring sustainable agricultural practices from nursery to fresh fruit bunch harvest.",
+    imageSrc:
+      "https://images.unsplash.com/photo-1596786232430-8b5bd1e1c555?w=700&q=80",
+    imageAlt:
+      "Rows of mature oil palm trees on a Setia Tani plantation estate in Malaysia",
+    href: "#plantation",
+  },
+  {
+    title: "Palm Oil Milling",
+    description:
+      "State-of-the-art processing mills that extract high-quality Crude Palm Oil (CPO) and Palm Kernel from Fresh Fruit Bunches, serving domestic refineries and export markets worldwide.",
     imageSrc:
       "https://images.unsplash.com/photo-1565264162849-45f0d6456d33?w=700&q=80",
     imageAlt:
-      "Industrial packaging film machinery — rolls of stretch film in a manufacturing plant",
-    href: "#packaging",
-  },
-  {
-    title: "Property",
-    description:
-      "An established developer in Malaysia with a reputation for affordable, quality housing that meets the needs of most Malaysian home buyers.",
-    imageSrc:
-      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=700&q=80",
-    imageAlt:
-      "Aerial view of a Scientex residential property development with roads and green landscaping",
-    href: "#property",
+      "Interior of a modern palm oil mill — processing equipment and conveyor systems",
+    href: "#milling",
   },
 ] as const;
 
@@ -59,7 +59,7 @@ function BusinessCard({
         <a
           href={href}
           className="inline-flex items-center gap-1.5 rounded-full border border-white/60 px-5 py-2 text-sm text-white/90 transition-colors hover:border-white hover:text-white"
-          aria-label={`Learn more about Scientex ${title}`}
+          aria-label={`Learn more about Setia Tani ${title}`}
         >
           Learn more
           <ChevronRight className="h-4 w-4" aria-hidden="true" />
@@ -71,7 +71,7 @@ function BusinessCard({
 
 export function BusinessesSection() {
   return (
-    // Dark navy background matches the screenshot (#0d1e52 is Scientex's deep navy)
+    // Dark navy background
     <section
       className="bg-[#0d1e52] py-14"
       aria-labelledby="businesses-heading"
