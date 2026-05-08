@@ -2,27 +2,22 @@ import { useState } from "react";
 import { ChevronDown, Search, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 
-// Nav items matching the Scientex header exactly.
-// hasDropdown drives the chevron indicator — dropdowns are visual-only for now
-// (no real sub-menus needed for the homepage prototype).
 const NAV_ITEMS = [
-  { label: "About Scientex", hasDropdown: true },
-  { label: "Our Businesses", hasDropdown: true },
+  { label: "About Setia Tani", hasDropdown: true },
+  { label: "Our Operations", hasDropdown: true },
   { label: "Sustainability", hasDropdown: true },
   { label: "Investor Relations", hasDropdown: true },
   { label: "Careers", hasDropdown: false },
 ] as const;
 
-// Inline SVG approximation of the Scientex circular emblem.
-// A custom image asset could replace this for pixel-perfect accuracy.
-function ScientexLogo() {
+function SetiataniLogo() {
   return (
     <Link
       to="/"
       className="flex items-center gap-2"
-      aria-label="Scientex — go to homepage"
+      aria-label="Setia Tani — go to homepage"
     >
-      {/* Circular badge: outer gold ring, inner navy fill, yellow bottom swoosh */}
+      {/* Circular badge: outer gold ring, inner green fill, yellow bottom swoosh */}
       <svg
         width="52"
         height="52"
@@ -33,17 +28,17 @@ function ScientexLogo() {
       >
         <circle cx="26" cy="26" r="25" fill="#003087" />
         <circle cx="26" cy="26" r="21" fill="#004499" />
-        {/* Stylised "S" letterform as a proxy for the real emblem art */}
+        {/* Stylised "ST" letterform */}
         <text
           x="26"
           y="33"
           textAnchor="middle"
           fill="white"
-          fontSize="20"
+          fontSize="14"
           fontWeight="bold"
           fontFamily="Arial, sans-serif"
         >
-          S
+          ST
         </text>
         {/* Gold swoosh arc at the bottom of the circle */}
         <path
@@ -58,10 +53,10 @@ function ScientexLogo() {
       {/* Wordmark + tagline */}
       <div className="flex flex-col leading-none">
         <span className="text-[17px] font-extrabold uppercase tracking-widest text-[#003087]">
-          SCIENTEX
+          SETIA TANI
         </span>
         <span className="mt-0.5 text-[9px] italic text-gray-400">
-          healthy, friendly &amp; happy
+          quality, sustainability &amp; growth
         </span>
       </div>
     </Link>
@@ -75,7 +70,7 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full bg-white shadow-sm">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
-        <ScientexLogo />
+        <SetiataniLogo />
 
         {/* ── Desktop navigation ── hidden on small screens */}
         <nav aria-label="Main navigation" className="hidden md:block">

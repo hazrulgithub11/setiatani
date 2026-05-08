@@ -1,37 +1,37 @@
 import { ChevronRight } from "lucide-react";
 
-// News items sourced directly from the screenshot.
+// News items for Setia Tani.
 // In a real implementation these would be fetched from an API or CMS.
 const NEWS_ITEMS = [
   {
-    title: "Scientex Announces Quarter 2 FY2026 Results",
+    title: "Setia Tani Announces Quarter 2 FY2026 Financial Results",
     date: "March 15, 2026",
     href: "#",
   },
   {
-    title: "Scientex Announces Quarter 1 FY2026 Results",
-    date: "December 17, 2025",
+    title: "Setia Tani Achieves Full RSPO Certification Across All Estates",
+    date: "January 20, 2026",
     href: "#",
   },
   {
-    title: "Scientex 57th Annual General Meeting",
-    date: "September 17, 2025",
+    title: "Setia Tani 12th Annual General Meeting",
+    date: "September 18, 2025",
     href: "#",
   },
   {
     title: "Changes In Boardroom",
-    date: "September 17, 2025",
+    date: "September 18, 2025",
     href: "#",
   },
   {
-    title: "Scientex Announces Quarter 4 FY2025 Results",
-    date: "September 17, 2025",
+    title: "Setia Tani Announces Quarter 4 FY2025 Financial Results",
+    date: "September 18, 2025",
     href: "#",
   },
   {
     title:
-      "Scientex Wins at Hubexo Asia Awards 2025 for the Fourth Consecutive Year",
-    date: "August 5, 2025",
+      "Setia Tani Receives Best Sustainable Plantation Operator Award 2025",
+    date: "August 12, 2025",
     href: "#",
   },
 ] as const;

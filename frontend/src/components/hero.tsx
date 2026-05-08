@@ -1,10 +1,8 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-// The hero image is a public Unsplash photo (pine-needle close-up / nature bokeh)
-// that closely matches the green nature photo in the Scientex design.
-// Replace this URL with a locally hosted asset once the real photo is licensed.
+// Aerial view of a palm oil plantation — replace with a licensed asset when available.
 const HERO_IMAGE_URL =
-  "https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?w=1600&q=80";
+  "https://images.unsplash.com/photo-1540202404-1b927e27fa8b?w=1600&q=80";
 
 export function Hero() {
   return (
@@ -12,7 +10,7 @@ export function Hero() {
     // position relative to this element, not the entire page.
     <section
       className="relative h-[420px] w-full overflow-hidden md:h-[480px]"
-      aria-label="Sustainable Growth hero banner"
+      aria-label="Harvesting Prosperity hero banner"
     >
       {/* ── Background image ── */}
       {/* We use an inline style for the background-image URL because Tailwind's
@@ -22,7 +20,7 @@ export function Hero() {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url('${HERO_IMAGE_URL}')` }}
         role="img"
-        aria-label="Close-up of pine branches — representing sustainability and growth"
+        aria-label="Aerial view of a palm oil plantation — representing sustainable agriculture and growth"
       />
 
       {/* ── Dark semi-transparent overlay ──
@@ -42,22 +40,22 @@ export function Hero() {
           `relative z-10` lifts the text above the overlay layer. */}
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center text-white">
         <h1 className="max-w-2xl text-3xl font-bold leading-snug drop-shadow-md sm:text-4xl lg:text-[2.6rem]">
-          Sustainable Growth, Better Tomorrow
+          Harvesting Prosperity, Sustaining Our Future
         </h1>
 
         <p className="mt-4 max-w-md text-sm leading-relaxed text-white/90 drop-shadow sm:max-w-lg sm:text-[13px]">
-          We are committed to achieving growth in tandem with continuous progress
-          across the economic, social and environmental spectrum, supporting a
-          brighter future for all stakeholders through responsible operations and
-          innovative solutions.
+          We are dedicated to advancing sustainable palm oil production that
+          creates lasting value for our communities, environment, and
+          stakeholders through responsible farming practices and innovative
+          processing solutions.
         </p>
 
-        {/* CTA button: navy rounded-full pill style matching the screenshot */}
+        {/* CTA button: green rounded-full pill style */}
         <button
           className="mt-7 rounded-full bg-[#003087] px-7 py-2.5 text-sm font-medium text-white shadow-md transition-colors hover:bg-[#00418f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-          aria-label="Learn about our corporate vision and purpose"
+          aria-label="Learn about our corporate vision and mission"
         >
-          Our Corporate Vision &amp; Purpose
+          Our Vision &amp; Mission
         </button>
       </div>
 
