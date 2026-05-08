@@ -1,4 +1,5 @@
 import { ChevronRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 // Agricultural team / field workers photo — replace with a licensed Setia Tani asset when available.
 const OFFICE_IMAGE_URL =
@@ -10,9 +11,15 @@ export function CareersBanner() {
     <section className="bg-gray-100 py-12" aria-labelledby="careers-heading">
       <div className="mx-auto max-w-4xl px-6">
         {/* Inner wrapper — relative so the navy card can overlay the image */}
-        <div className="relative overflow-hidden rounded-sm">
+        <motion.div
+          className="relative overflow-hidden rounded-sm"
+          initial={{ opacity: 0, scale: 0.97 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: true, margin: "-60px" }}
+        >
 
-          {/* ── Office photo — fills the full container width ── */}
+          {/* ── Photo — fills the full container width ── */}
           <img
             src={OFFICE_IMAGE_URL}
             alt="Setia Tani team members working in the field and operations"
@@ -20,19 +27,17 @@ export function CareersBanner() {
             loading="lazy"
           />
 
-          {/* ── Navy overlay card ──
-              Absolutely positioned over the left portion of the image.
-              Uses a dark navy background with slight transparency at the right edge
-              so it blends into the photo rather than cutting sharply. */}
-          <div
+          {/* ── Navy overlay card — slides in from the left over the photo ── */}
+          <motion.div
             className="absolute inset-y-0 left-0 flex w-[52%] flex-col justify-center bg-[#0d1e52] px-8 py-8 sm:w-[42%]"
-            /* A subtle right-side fade so the card blends into the photo behind it.
-               We do this with a tailwind arbitrary background-image gradient because
-               a solid box edge would look abrupt against the photo. */
             style={{
               background:
                 "linear-gradient(to right, #0d1e52 78%, rgba(13,30,82,0))",
             }}
+            initial={{ x: "-100%" }}
+            whileInView={{ x: 0 }}
+            transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
+            viewport={{ once: true, margin: "-60px" }}
           >
             {/* Small eyebrow text */}
             <p className="text-[11px] font-medium uppercase tracking-widest text-blue-200">
@@ -79,8 +84,8 @@ export function CareersBanner() {
                 strokeLinecap="round"
               />
             </svg>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

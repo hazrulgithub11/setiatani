@@ -1,4 +1,5 @@
 import { Play } from "lucide-react";
+import { motion } from "framer-motion";
 
 // This section sits between BusinessesSection and any future content.
 // Layout: video thumbnail (left ~55%) + "Our Drivers of Growth" text (right ~45%).
@@ -12,12 +13,14 @@ export function DriversSection() {
         {/* Flex row on md+, stacked on mobile */}
         <div className="flex flex-col items-center gap-10 md:flex-row md:items-stretch md:gap-12">
 
-          {/* ── Left: Video thumbnail ─────────────────────────────────────────
-              Simulates the embedded Setia Tani brand video.
-              The thumbnail recreates the blue-sky + logo + play-button composition
-              visible in the screenshot. Replace with an <iframe> or <video> when
-              the actual video embed URL is available. */}
-          <div className="relative w-full shrink-0 overflow-hidden rounded-sm md:w-[52%]">
+          {/* ── Left: Video thumbnail — slides in from the left ── */}
+          <motion.div
+            className="relative w-full shrink-0 overflow-hidden rounded-sm md:w-[52%]"
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            viewport={{ once: true, margin: "-80px" }}
+          >
             {/* Sky-blue gradient background mimicking the video thumbnail */}
             <div
               className="flex h-[220px] w-full flex-col items-center justify-center bg-gradient-to-b from-sky-400 to-sky-600 sm:h-[260px] md:h-full md:min-h-[220px]"
@@ -62,10 +65,16 @@ export function DriversSection() {
                 aria-hidden="true"
               />
             </button>
-          </div>
+          </motion.div>
 
-          {/* ── Right: "Our Pillars of Growth" text block ───────────────────── */}
-          <div className="flex flex-col justify-center md:w-[48%]">
+          {/* ── Right: "Our Pillars of Growth" text block — slides in from the right ── */}
+          <motion.div
+            className="flex flex-col justify-center md:w-[48%]"
+            initial={{ opacity: 0, x: 60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+            viewport={{ once: true, margin: "-80px" }}
+          >
             <h2
               id="drivers-heading"
               className="text-2xl font-bold text-[#003087] sm:text-[1.6rem]"
@@ -86,7 +95,7 @@ export function DriversSection() {
               scale while upholding our commitment to responsible, certified
               sustainable operations across the entire value chain.
             </p>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

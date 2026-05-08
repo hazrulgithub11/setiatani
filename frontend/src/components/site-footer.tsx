@@ -1,4 +1,16 @@
 import { Phone, Printer, Mail } from "lucide-react";
+import { motion } from "framer-motion";
+
+// Each footer column fades up with a small stagger between columns.
+const footerGrid = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.08 } },
+};
+
+const footerCol = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] } },
+};
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 // Each column is defined as a typed object so adding/removing links in future
@@ -64,10 +76,16 @@ export function SiteFooter() {
         {/* ── Main link columns ── */}
         <div className="relative mx-auto max-w-6xl px-6 py-12">
           {/* 5-column grid on lg+; 2-col on sm; 1-col on mobile */}
-          <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-5">
+          <motion.div
+            className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-5"
+            variants={footerGrid}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-60px" }}
+          >
 
             {/* Column 1 — Company info */}
-            <div className="lg:col-span-1">
+            <motion.div className="lg:col-span-1" variants={footerCol}>
               <ColHeading>Setia Tani Berhad</ColHeading>
               <address className="not-italic">
                 <p className="text-[13px] leading-6 text-white/65">
@@ -101,48 +119,48 @@ export function SiteFooter() {
                   </li>
                 </ul>
               </address>
-            </div>
+            </motion.div>
 
             {/* Column 2 — About Setia Tani */}
-            <div>
+            <motion.div variants={footerCol}>
               <ColHeading>About Setia Tani</ColHeading>
               <ul className="space-y-0.5">
                 {ABOUT_LINKS.map((label) => (
                   <FooterLink key={label} label={label} />
                 ))}
               </ul>
-            </div>
+            </motion.div>
 
             {/* Column 3 — Our Operations */}
-            <div>
+            <motion.div variants={footerCol}>
               <ColHeading>Our Operations</ColHeading>
               <ul className="space-y-0.5">
                 {BUSINESS_LINKS.map((label) => (
                   <FooterLink key={label} label={label} />
                 ))}
               </ul>
-            </div>
+            </motion.div>
 
             {/* Column 4 — Sustainability */}
-            <div>
+            <motion.div variants={footerCol}>
               <ColHeading>Sustainability</ColHeading>
               <ul className="space-y-0.5">
                 {SUSTAINABILITY_LINKS.map((label) => (
                   <FooterLink key={label} label={label} />
                 ))}
               </ul>
-            </div>
+            </motion.div>
 
             {/* Column 5 — Quick Links */}
-            <div>
+            <motion.div variants={footerCol}>
               <ColHeading>Quick Links</ColHeading>
               <ul className="space-y-0.5">
                 {QUICK_LINKS.map((label) => (
                   <FooterLink key={label} label={label} />
                 ))}
               </ul>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
 
         {/* ── Copyright bar ── */}

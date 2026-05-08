@@ -1,4 +1,5 @@
 import { ChevronRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 // Each business card maps to one column in the dark navy section.
 // Images are Unsplash stand-ins; swap src props with real licensed assets.
@@ -85,8 +86,18 @@ export function BusinessesSection() {
 
         {/* Two-column grid — stacks to single column on mobile */}
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-12">
-          {BUSINESSES.map((biz) => (
-            <BusinessCard key={biz.title} {...biz} />
+          {BUSINESSES.map((biz, index) => (
+            // Odd-indexed card slides from the right; even from the left.
+            // This creates a "spreading" reveal as the section enters the viewport.
+            <motion.div
+              key={biz.title}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: index * 0.1 }}
+              viewport={{ once: true, margin: "-60px" }}
+            >
+              <BusinessCard {...biz} />
+            </motion.div>
           ))}
         </div>
       </div>
