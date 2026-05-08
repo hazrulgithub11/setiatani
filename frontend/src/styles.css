@@ -1,8 +1,9 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Light theme — the Scientex site uses a white/gray palette */
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 * {
@@ -25,5 +26,6 @@ body {
     BlinkMacSystemFont,
     "Segoe UI",
     sans-serif;
-  background: #020617;
+  background: #ffffff;
+  color: #1a1a1a;
 }
