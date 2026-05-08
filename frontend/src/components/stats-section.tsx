@@ -5,7 +5,7 @@ import { StatCard } from "./stat-card";
 // fadeUp is reused for headings/paragraphs throughout the section.
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] } },
 };
 
 // cardGrid staggers its children (the four stat cards) 0.1s apart.
@@ -17,7 +17,7 @@ const cardGrid = {
 // Each card slides up and fades in individually.
 const cardItem = {
   hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] } },
 };
 
 const STATS = [
